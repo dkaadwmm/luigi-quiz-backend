@@ -1,15 +1,10 @@
 package unittest;
 
-import static org.junit.Assert.*;
-
-import model.QuizSet;
-import org.json.JSONObject;
-import org.junit.Test;
-
 import model.Qwa;
+import org.junit.Test;
 import persistenz.DBManager;
 
-import javax.xml.ws.Response;
+import static org.junit.Assert.assertEquals;
 
 public class QwaTestDB {
 
