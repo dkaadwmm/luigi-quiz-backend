@@ -1,17 +1,12 @@
 package persistenz;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-
 import model.Answer;
 import model.Question;
 import model.Qwa;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import java.util.List;
 
 public class DBManager {
 	
@@ -30,4 +25,30 @@ public class DBManager {
 	    session.close();
 	    return qwa;
 	}
-}
+	public static int getQuestionCount(){
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.openSession();
+
+		int questionCount = ((Long)session.createQuery("select count(*) from Question").iterate().next()).intValue();
+
+		session.close();
+		return questionCount;
+	}
+
+	public static List<Integer> getQuestionsIDForQuizset(int questionAmountToGet){
+		List<Integer> questionIDsList;
+
+		int questionsInDB = DBManager.getQuestionCount();
+		String query = "SELECT questionID FROM Question ORDER BY RAND()";
+
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+
+		if (questionAmountToGet < questionsInDB) {
+			questionIDsList = factory.openSession().createQuery(query).setMaxResults(questionAmountToGet).list();
+		}
+		else {
+			questionIDsList = factory.openSession().createQuery(query).setMaxResults(questionsInDB).list();
+		}
+		return questionIDsList;
+		}
+	}
