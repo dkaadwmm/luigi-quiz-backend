@@ -1,8 +1,6 @@
 package business;
 
 
-import model.Answer;
-import model.Question;
 import model.QuizSet;
 
 import model.Qwa;
@@ -14,9 +12,7 @@ import java.util.List;
 public class QuizUtils {
 	
     public static void insertQwa(Qwa qwa){
-        Question question = qwa.getQuestion();
-        List<Answer> answerList = qwa.getAnswers();
-
+        DBManager.insertQwa(qwa);
     }
     
     public static QuizSet generateRandomQuizSet(int questionAmountToGet){

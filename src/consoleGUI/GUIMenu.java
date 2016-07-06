@@ -58,6 +58,7 @@ public  class GUIMenu {
 
         } catch (NumberFormatException nfe) {
             System.err.println("Bitte nur Ganzzahlen eingeben!");
+            i = -1;
         }
         finally{
             return i;

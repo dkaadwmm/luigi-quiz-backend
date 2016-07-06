@@ -8,6 +8,8 @@ public class ConsoleGUI {
 
 
 	public static void main(String[] args) {
+        //org.jboss.logging.Logger logger = org.jboss.logging.Logger.getLogger("org.hibernate");
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(java.util.logging.Level.WARNING);
 
         //Willkommen
         GUIMenu.printWelcomeMessage();
@@ -18,6 +20,9 @@ public class ConsoleGUI {
             int menuChoice = GUIMenu.readIntfromConsole();
 
             switch (menuChoice) {
+                case -1:
+                    //invalid input
+                    break;
                 case 0: {
                     continueGame = false;
                     break;
