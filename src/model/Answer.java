@@ -14,7 +14,18 @@ public class Answer {
 	private String text;
 	private int questionID;
 	private boolean isCorrect;
-	
+
+	public Answer(){
+
+	}
+
+	public Answer(int answerID, String text, int questionID, boolean isCorrect) {
+		this.answerID = answerID;
+		this.text = text;
+		this.questionID = questionID;
+		this.isCorrect = isCorrect;
+	}
+
 	public int getAnswerID() {
 		return answerID;
 	}

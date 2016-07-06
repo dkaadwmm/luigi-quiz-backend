@@ -6,6 +6,13 @@ import java.util.List;
 public class QuizSet {
     private List<Qwa> qwaList;
 
+
+    public QuizSet(List<Qwa> qwaList) {
+
+        this.qwaList = new ArrayList<Qwa>();
+        this.qwaList = qwaList;
+    }
+
     public QuizSet() {
         qwaList = new ArrayList<Qwa>();
     }

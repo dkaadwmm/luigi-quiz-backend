@@ -12,7 +12,16 @@ public class Question {
 	@GeneratedValue
 	private int questionID;
 	private String text;
-	
+
+	public Question(){
+
+	}
+
+	public Question(int questionID, String text) {
+		this.questionID = questionID;
+		this.text = text;
+	}
+
 	public int getId() {
 		return questionID;
 	}
