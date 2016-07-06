@@ -12,30 +12,35 @@ public class ConsoleGUI {
         //Willkommen
         GUIMenu.printWelcomeMessage();
 
-        do {
 
+        do {
             GUIMenu.printMenu();
             int menuChoice = GUIMenu.readIntfromConsole();
 
-            switch (menuChoice){
+            switch (menuChoice) {
                 case 0: {
                     continueGame = false;
                     break;
                 }
                 case 1: {
-                    Qwa testQwa = unittest.ConsoleGUITest.createTestQwa(0,0);
-                    GUIAskQuestion aQ =  new GUIAskQuestion(testQwa);
-                    aQ.startAskingQuestion();
+                    try {
+
+                        GUIQuizSetManager.getNewQuizSet(10);
+                        GUIQuizSetManager.iterateThroughQuizSet();
+
+                    } catch (UserWantsToQuitException e) {
+                        continueGame = false;
+                        break;
+                    }
                 }
 
             }
+        } while (continueGame) ;
 
-
-
-        }while(continueGame);
-		
+		GUIMenu.printGoodbyeMessage();
 		return;
 
 	}
+
 
 }

@@ -54,7 +54,7 @@ public  class GUIMenu {
         try {
             i = Integer.parseInt(input);
 
-            System.out.print("\nEingegebene Zahl: " + input );
+            //System.out.print("\nEingegebene Zahl: " + input );
 
         } catch (NumberFormatException nfe) {
             System.err.println("Bitte nur Ganzzahlen eingeben!");
@@ -62,6 +62,12 @@ public  class GUIMenu {
         finally{
             return i;
         }
+
+    }
+
+    public static void printGoodbyeMessage() {
+
+        System.out.println("\n**Auf Wiedersehen!**");
 
     }
 }
