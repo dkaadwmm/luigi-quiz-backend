@@ -1,1 +1,0 @@
-# luigi-quiz-backend
