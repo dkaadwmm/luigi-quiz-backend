@@ -17,6 +17,7 @@ public class Qwa {
 		this.answers = answers;
 	}
 
+
 	public Question getQuestion() {
 		return question;
 	}
@@ -33,8 +34,9 @@ public class Qwa {
 	public void shuffleAnswers() {
 		if (!answers.isEmpty()) {
 			long seed = System.nanoTime();
-			Collections.shuffle(answers, new Random(seed));
-			Collections.shuffle(answers, new Random(seed));
+			Collections.shuffle(answers, new Random(seed + 1));
+			Collections.shuffle(answers, new Random(seed - 2));
+			Collections.shuffle(answers, new Random(seed + 3));
 		}
 	}
 }

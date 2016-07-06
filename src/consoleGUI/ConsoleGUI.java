@@ -1,5 +1,7 @@
 package consoleGUI;
 
+import model.Qwa;
+
 public class ConsoleGUI {
 
     static boolean continueGame = true;
@@ -21,7 +23,9 @@ public class ConsoleGUI {
                     break;
                 }
                 case 1: {
-
+                    Qwa testQwa = unittest.ConsoleGUITest.createTestQwa(0,0);
+                    GUIAskQuestion aQ =  new GUIAskQuestion(testQwa);
+                    aQ.startAskingQuestion();
                 }
 
             }
