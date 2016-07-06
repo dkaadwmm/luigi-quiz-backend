@@ -51,4 +51,22 @@ public class DBManager {
 		}
 		return questionIDsList;
 		}
+    public static void insertQwaInDB(Qwa qwa){
+        Question question = qwa.getQuestion();
+        List<Answer> answerList = qwa.getAnswers();
+
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.openSession();
+        session.beginTransaction();
+        session.save(question);
+        int questionID = question.getId();
+
+        for (Answer answer:answerList){
+            answer.setQuestionID(questionID);
+            session.save(answer);
+        }
+        session.getTransaction().commit();
+        session.close();
+
+    }
 	}

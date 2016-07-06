@@ -1,15 +1,23 @@
 package business;
 
 
+import model.Answer;
+import model.Question;
 import model.QuizSet;
 
+import model.Qwa;
 import persistenz.DBManager;
 
 
 import java.util.List;
 
 public class QuizUtils {
-    public static QuizSet createRandomQuizSet(int questionAmountToGet){
+    public static void insertQwa(Qwa qwa){
+        Question question = qwa.getQuestion();
+        List<Answer> answerList = qwa.getAnswers();
+
+    }
+    public static QuizSet generateRandomQuizSet(int questionAmountToGet){
         QuizSet quizSet = new QuizSet();
         List<Integer> questionIDList = DBManager.getQuestionsIDForQuizset(questionAmountToGet);
         for (Integer questionID:questionIDList ){
