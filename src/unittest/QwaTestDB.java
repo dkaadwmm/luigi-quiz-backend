@@ -1,15 +1,10 @@
 package unittest;
 
-import static org.junit.Assert.*;
-
-import model.QuizSet;
-import org.json.JSONObject;
-import org.junit.Test;
-
 import model.Qwa;
+import org.junit.Test;
 import persistenz.DBManager;
 
-import javax.xml.ws.Response;
+import static org.junit.Assert.assertEquals;
 
 public class QwaTestDB {
 
@@ -17,6 +12,10 @@ public class QwaTestDB {
 	public void test() {
 		Qwa qwa = DBManager.getQwaByID(1);
 		Qwa qwa2 = DBManager.getQwaByID(2);
+		int count = 2;
+
+		assertEquals(count, DBManager.getQuestionsIDForQuizset(10).size());
+		assertEquals(count, DBManager.getQuestionCount());
 		assertEquals("Was ist Spring?", qwa.getQuestion().getText());
 		assertEquals("Java Webframework", qwa.getAnswers().get(0).getText());
 		assertEquals("Party in München", qwa.getAnswers().get(1).getText());
