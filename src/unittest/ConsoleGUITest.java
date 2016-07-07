@@ -42,7 +42,7 @@ public class ConsoleGUITest {
         as.add(new model.Answer(1 + offsetAnswers, "Antwort" + Integer.toString(1 + offsetQuestion), 1 + offsetQuestion, true));
         as.add(new model.Answer(2  + offsetAnswers, "Antwort" + Integer.toString(2 + offsetQuestion), 1 + offsetQuestion, false));
         as.add(new model.Answer(3  + offsetAnswers, "Antwort" + Integer.toString(3 + offsetQuestion), 1 + offsetQuestion, false));
-        as.add(new model.Answer(4  + offsetAnswers, "Antwort" + Integer.toString(4 + offsetQuestion), 1 + offsetQuestion, false));
+        as.add(new model.Answer(4  + offsetAnswers, "Antwort" + Integer.toString(4 + offsetQuestion), 1 + offsetQuestion, true));
 
         Qwa qwa = new Qwa(q, as);
         qwa.shuffleAnswers();

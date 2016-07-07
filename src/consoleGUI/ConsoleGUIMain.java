@@ -2,7 +2,7 @@ package consoleGUI;
 
 import model.Qwa;
 
-public class ConsoleGUI {
+public class ConsoleGUIMain {
 
     static boolean continueGame = true;
 

@@ -12,13 +12,15 @@ import java.util.Scanner;
  */
 public class GUIAskQuestion {
 
+    private List<Integer> userInput;
     private Qwa currentQwa;
+
     private List<Integer> correctAnswerListIndex;
 
 
     GUIAskQuestion(Qwa qwa){
         currentQwa = qwa;
-
+        userInput = new ArrayList<Integer>();
     }
 
     public Qwa getCurrentQwa() {
@@ -28,19 +30,30 @@ public class GUIAskQuestion {
     public void setCurrentQwa(Qwa currentQwa) {
         this.currentQwa = currentQwa;
 
+
     }
 
     public void startAskingQuestion() throws  UserWantsToQuitException{
 
-        System.out.println("\nHinweis: Mit der Eingabe 0 können Sie das Quiz jederzeit abbrechen!\n");
         printQuestionWithAnswers();
         getAndCheckAnswer();
 
     }
 
+    public void askAQuestion() throws UserWantsToQuitException {
+
+        printQuestionWithAnswers();
+        getUserInput();
+        if(!checkIfAnswerIsRight()) {printCorrectAnswer();}
+        else {
+            System.out.println("Glückwunsch! Das war richtig!");}
+
+    }
+
+
     //prints Question and saves the right answers for future usage
     private void printQuestionWithAnswers(){
-
+        
         System.out.println("\n"+ currentQwa.getQuestion().getText());
 
         int maxAnswers = currentQwa.getAnswers().size();
@@ -57,6 +70,60 @@ public class GUIAskQuestion {
             System.out.println(Integer.toString(i + 1) + " - " +  answer.getText());
 
         }
+
+    }
+
+    private void getUserInput() throws UserWantsToQuitException {
+
+        userInput = readAnswerfromConsole();
+    }
+
+    private boolean checkIfAnswerIsRight(){
+
+        boolean answerIsCorrect = true;
+
+        List<Answer> answers = currentQwa.getAnswers();
+        int maxSize = answers.size();
+
+
+        for (int i : userInput)
+        {
+            if(i > maxSize)
+            {
+                answerIsCorrect = false;
+                break;
+            }
+
+            if(!answers.get(i - 1).isCorrect())
+            {
+                answerIsCorrect = false;
+                break;
+            }
+        }
+        
+        return answerIsCorrect;
+    }
+
+    private void printCorrectAnswer() {
+
+        System.out.println("\nLeider falsch!");
+        int maxSize = currentQwa.getAnswers().size();
+
+        String entryText = "\nDie richtige Antwort ist:";
+        String correctAnswers = "";
+        int counter = 0;
+
+        for(int i = 0; i < maxSize; i++)
+        {
+            if (currentQwa.getAnswers().get(i).isCorrect()){
+                correctAnswers += "\n" + currentQwa.getAnswers().get(i).getText() ;
+                counter++;
+            }
+        }
+
+        if(counter > 1) entryText = "\nDie richtigen Antworten sind:";
+
+        System.out.println(entryText + correctAnswers);
 
     }
 
@@ -140,4 +207,6 @@ public class GUIAskQuestion {
 
         return integers;
     }
+
+
 }
