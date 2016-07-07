@@ -14,20 +14,6 @@ class GUIQuizSetManager {
 
     private static QuizSet qs;
 
-
-    static void iterateThroughQuizSet() throws UserWantsToQuitException {
-
-        System.out.println("\nHinweis: Mit der Eingabe 0 können Sie das Quiz jederzeit abbrechen!");
-
-        for(Qwa qwa : qs.getQwaList()) {
-
-            GUIAskQuestion aQ = new GUIAskQuestion(qwa);
-            aQ.askAQuestion();
-
-        }
-
-    }
-
     /**
      * gets a new Quiz set from QuizUtils.generateRandomQuizSet(int amountAnswers)
      * If an Exception occurs (e.g. no Database), it will use TestData instead
@@ -37,7 +23,7 @@ class GUIQuizSetManager {
      *
      * @param amountAnswers how many answers should be created
      */
-    static void getNewQuizSet(int amountAnswers) {
+    protected static void getNewQuizSet(int amountAnswers) {
 
         try {
             qs = QuizUtils.generateRandomQuizSet(amountAnswers);
@@ -49,5 +35,18 @@ class GUIQuizSetManager {
                 qs.addQwa(unittest.ConsoleGUITest.createTestQwa(i, i+(i*4)));
             }
         }
+    }
+
+    protected static void iterateThroughQuizSet() throws UserWantsToQuitException {
+
+        System.out.println("\nHinweis: Mit der Eingabe 0 können Sie das Quiz jederzeit abbrechen!");
+
+        for(Qwa qwa : qs.getQwaList()) {
+
+            GUIAskQuestion aQ = new GUIAskQuestion(qwa);
+            aQ.askAQuestion();
+
+        }
+
     }
 }

@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  */
 class GUIMenu {
-    static void printWelcomeMessage(){
+    protected static void printWelcomeMessage(){
 
         System.out.println("**Willkommen zu Luigi's Quiz!**");
         System.out.println();
@@ -34,14 +34,14 @@ class GUIMenu {
                 "█░░░░░░█");
     }
 
-    static void printMenu() {
+    protected static void printMenu() {
 
         System.out.println("\nMenü:");
         System.out.println("1 - Quiz starten");
         System.out.println("0 - Programm beenden");
     }
 
-    static int readIntfromConsole() {
+    protected static int readIntfromConsole() {
 
         int integer;
 

@@ -14,6 +14,10 @@ angular.module('myApp', ['ngRoute'])
                 templateUrl: './allquestions.html', controller: 'QuizController'
             })
             .otherwise('/home')})
+            .when('/edit', {
+             templateUrl: './edit.html', controller: 'QuizController'
+             })
+                        .otherwise('/home')})
     .run(['$rootScope', '$location', function($rootScope, $location){
         var path = function() {
             return $location.path();};

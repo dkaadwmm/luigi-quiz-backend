@@ -23,11 +23,11 @@ class GUIAskQuestion {
         userInput = new ArrayList<>();
     }
 
-     public Qwa getCurrentQwa() {
+    public Qwa getCurrentQwa() {
           return currentQwa;
       }
 
-      public void setCurrentQwa(Qwa currentQwa) {
+    public void setCurrentQwa(Qwa currentQwa) {
           this.currentQwa = currentQwa;
       }
 
