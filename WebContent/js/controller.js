@@ -33,7 +33,7 @@ angular.module('myApp')
                     return false;
                 }
             }
-            return true;}
+            return true;} 
             
         }
 
