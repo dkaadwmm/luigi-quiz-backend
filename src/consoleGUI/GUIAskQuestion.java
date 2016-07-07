@@ -29,15 +29,6 @@ public class GUIAskQuestion {
 
     public void setCurrentQwa(Qwa currentQwa) {
         this.currentQwa = currentQwa;
-
-
-    }
-
-    public void startAskingQuestion() throws  UserWantsToQuitException{
-
-        printQuestionWithAnswers();
-        getAndCheckAnswer();
-
     }
 
     public void askAQuestion() throws UserWantsToQuitException {
@@ -50,8 +41,6 @@ public class GUIAskQuestion {
 
     }
 
-
-    //prints Question and saves the right answers for future usage
     private void printQuestionWithAnswers(){
         
         System.out.println("\n"+ currentQwa.getQuestion().getText());
@@ -126,58 +115,6 @@ public class GUIAskQuestion {
         System.out.println(entryText + correctAnswers);
 
     }
-
-    private void getAndCheckAnswer() throws UserWantsToQuitException {
-
-        List<Integer> userInput = readAnswerfromConsole();
-
-        String missingAnswers = "";
-        String wrongAnswers = "";
-
-        for(int i = 0; i < correctAnswerListIndex.size(); i++){
-
-            if(userInput.contains(correctAnswerListIndex.get(i) + 1)) continue;
-            else missingAnswers += currentQwa.getAnswers().get(correctAnswerListIndex.get(i)).getText() + "\n";
-        }
-
-
-        for(int i : userInput)
-        {
-
-            if(correctAnswerListIndex.contains(i)) continue;
-            else {
-
-                String errorString = "";
-                if (i > currentQwa.getAnswers().size()) errorString = Integer.toString(i);
-                else {errorString = currentQwa.getAnswers().get(i - 1).getText();}
-
-                wrongAnswers += errorString + "\n";
-            }
-        }
-
-
-        if(missingAnswers == "" && wrongAnswers == ""){
-            System.out.println("\nGlückwunsch! Das war richtig!");
-        }
-        else{
-
-            System.out.println("\nLeider falsch!");
-
-            /*System.out.println(testString);
-            System.out.println(correctAnswerListIndex);
-            System.out.println(missingAnswers);*/
-
-
-            if(missingAnswers != "") {
-                System.out.println("Fehlende richtige Antwort(en): " + "\n" + missingAnswers);
-            }
-
-            if(missingAnswers != "") {
-                System.out.println("Falsche Antwort(en): " + "\n" + wrongAnswers);
-            }
-        }
-    }
-
 
     private static List<Integer> readAnswerfromConsole() throws UserWantsToQuitException {
 
