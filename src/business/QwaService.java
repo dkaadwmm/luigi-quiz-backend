@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import model.QuizSet;
 import model.Qwa;
 
+@Path("/qwaservice")
 public class QwaService {
     @POST
     @Consumes("application/json")
