@@ -12,15 +12,12 @@ public class Qwa {
 	private Question question;
 	private List<Answer> answers;
 
-	public Qwa(){
-
-	}
+	public Qwa() { }
 
 	public Qwa(Question question, List<Answer> answers) {
 		this.question = question;
 		this.answers = answers;
 	}
-
 
 	public Question getQuestion() {
 		return question;
