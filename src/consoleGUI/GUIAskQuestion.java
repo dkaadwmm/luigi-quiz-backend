@@ -8,31 +8,31 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * A class for asking a question. Take note that this needs an Instance to work (no static methods)
+ * as it safes a given Qwa object and reuses it during the Quiz
+ *
  * Created by franziska on 06.07.2016.
  */
 class GUIAskQuestion {
 
     private List<Integer> userInput;
-    private final Qwa currentQwa;
+    private Qwa currentQwa;
 
     GUIAskQuestion(Qwa qwa){
         currentQwa = qwa;
         userInput = new ArrayList<>();
     }
 
-// --Commented out by Inspection START (07.07.2016 11:04):
-//    public Qwa getCurrentQwa() {
-//        return currentQwa;
-//    }
-// --Commented out by Inspection STOP (07.07.2016 11:04)
+     public Qwa getCurrentQwa() {
+          return currentQwa;
+      }
 
-// --Commented out by Inspection START (07.07.2016 11:04):
-//    public void setCurrentQwa(Qwa currentQwa) {
-//        this.currentQwa = currentQwa;
-//    }
-// --Commented out by Inspection STOP (07.07.2016 11:04)
+      public void setCurrentQwa(Qwa currentQwa) {
+          this.currentQwa = currentQwa;
+      }
 
-    public void askAQuestion() throws UserWantsToQuitException {
+
+    protected void askAQuestion() throws UserWantsToQuitException {
 
         printQuestionWithAnswers();
         getUserInput();

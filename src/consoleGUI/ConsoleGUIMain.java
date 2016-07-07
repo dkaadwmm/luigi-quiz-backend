@@ -1,5 +1,11 @@
 package consoleGUI;
 
+
+/**
+ * This is the Main class for our Luigi Quiz on the console.
+ *
+ */
+
 class ConsoleGUIMain {
 
     private static boolean continueGame = true;

@@ -5,6 +5,9 @@ import model.QuizSet;
 import model.Qwa;
 
 /**
+ * This class fetches a QuizSet from the Database and iterates through the questions.
+ * Uses GUIAskQuestions for asking the individual question.
+ *
  * Created by franziska on 06.07.2016.
  */
 class GUIQuizSetManager {
@@ -25,6 +28,14 @@ class GUIQuizSetManager {
 
     }
 
+    /**
+     * gets a new Quiz set from QuizUtils.generateRandomQuizSet(int amountAnswers)
+     *
+     * If you want to check without using DB connection or if you want to get the questions from another source
+     * modify this method
+     *
+     * @param amountAnswers how many answers should be created
+     */
     static void getNewQuizSet(int amountAnswers) {
 
         /*//Testing

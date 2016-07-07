@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the model for a QuizSet. Contains a List of Qwa objects.
+ */
+
 public class QuizSet {
     private List<Qwa> qwaList;
 

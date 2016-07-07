@@ -8,8 +8,13 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsoleGUITest {
 
+/**
+ * A test class for Console GUI. Also contains a method for generating a test Qwa object
+ *
+ */
+
+public class ConsoleGUITest {
 
 	@Test
 	public void test() {
@@ -24,7 +29,16 @@ public class ConsoleGUITest {
         for (int i = 0; i < 50; ++i) System.out.println();
     }
 
-
+    /**
+     * This method generates a test Qwa with 1 Question and 4 Answers
+     *
+     * Use it like this to create n Qwa objects:
+     * for(int i = 0; i < n; i++){ createTestQwa(i, i+(i*4)); }
+     *
+     * @param offsetQuestion an offset for the question id
+     * @param offsetAnswers an offset for the answer ids
+     * @return the generated Qwa object
+     */
     public static Qwa createTestQwa(int offsetQuestion, int offsetAnswers){
         Question q = new Question(1 + offsetQuestion, "Was ist die Antwort auf die " + Integer.toString(1 + offsetQuestion) +". Frage ?" );
         List<Answer> as = new ArrayList<>();

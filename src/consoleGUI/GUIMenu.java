@@ -3,7 +3,9 @@ package consoleGUI;
 import java.util.Scanner;
 
 /**
+ * This class contains static methods for handeling the quiz menu.
  * Created by franziska on 06.07.2016.
+ *
  */
 class GUIMenu {
     static void printWelcomeMessage(){
@@ -62,7 +64,7 @@ class GUIMenu {
 
     }
 
-    public static void printGoodbyeMessage() {
+    protected static void printGoodbyeMessage() {
 
         System.out.println("\n**Auf Wiedersehen!**");
 
