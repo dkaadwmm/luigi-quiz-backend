@@ -23,7 +23,7 @@ public class QuizSetService {
 	@GET
     @Produces("application/json")
 	public Response getQuizSetAllAnswers() {
-        Gson gson = new GsonBuilder().create();
+		Gson gson = new GsonBuilder().create();
         QuizSet quizSet = QuizUtils.generateRandomQuizSet(9);
         StringWriter stringWriter = new StringWriter();
         gson.toJson(quizSet, stringWriter);
@@ -35,27 +35,5 @@ public class QuizSetService {
     @Produces("application/json")
     public Response getQuizSetSomeAnswers(@PathParam("count") int count) throws JSONException {
     	return null;
-    }
-	
-    @POST
-    @Consumes("application/json")
-    @Produces("application/json")
-    public QuizSet create(QuizSet quizSet) {
-        return QuizUtils.create(quizSet);
-    }
-
-    @PUT
-    @Path("{id}")
-    @Consumes("application/json")
-    @Produces("application/json")
-    public QuizSet update(QuizSet quizSet) {
-        return QuizUtils.update(quizSet);
-    }
-
-    @DELETE
-    @Path("{id}")
-    @Produces("application/json")
-    public void remove(@PathParam("id") int id) {
-    	QuizUtils.removeQwa(id);
     }
 }
