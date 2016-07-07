@@ -1,10 +1,8 @@
 package consoleGUI;
 
-import model.Qwa;
+class ConsoleGUIMain {
 
-public class ConsoleGUIMain {
-
-    static boolean continueGame = true;
+    private static boolean continueGame = true;
 
 
 	public static void main(String[] args) {
@@ -43,7 +41,7 @@ public class ConsoleGUIMain {
         } while (continueGame) ;
 
 		GUIMenu.printGoodbyeMessage();
-		return;
+
 
 	}
 

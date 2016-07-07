@@ -9,21 +9,23 @@ public class QuizSet {
 
     public QuizSet(List<Qwa> qwaList) {
 
-        this.qwaList = new ArrayList<Qwa>();
+        this.qwaList = new ArrayList<>();
         this.qwaList = qwaList;
     }
 
     public QuizSet() {
-        qwaList = new ArrayList<Qwa>();
+        qwaList = new ArrayList<>();
     }
 
     public List<Qwa> getQwaList() {
         return qwaList;
     }
 
-    public void setQwaList(List<Qwa> qwaList) {
-        this.qwaList = qwaList;
+
+   public void setQwaList(List<Qwa> qwaList) {
+      this.qwaList = qwaList;
     }
+
 
     public void addQwa(Qwa qwa) {
         qwaList.add(qwa);

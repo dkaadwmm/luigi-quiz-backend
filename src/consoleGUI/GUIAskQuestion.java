@@ -10,26 +10,27 @@ import java.util.Scanner;
 /**
  * Created by franziska on 06.07.2016.
  */
-public class GUIAskQuestion {
+class GUIAskQuestion {
 
     private List<Integer> userInput;
-    private Qwa currentQwa;
-
-    private List<Integer> correctAnswerListIndex;
-
+    private final Qwa currentQwa;
 
     GUIAskQuestion(Qwa qwa){
         currentQwa = qwa;
-        userInput = new ArrayList<Integer>();
+        userInput = new ArrayList<>();
     }
 
-    public Qwa getCurrentQwa() {
-        return currentQwa;
-    }
+// --Commented out by Inspection START (07.07.2016 11:04):
+//    public Qwa getCurrentQwa() {
+//        return currentQwa;
+//    }
+// --Commented out by Inspection STOP (07.07.2016 11:04)
 
-    public void setCurrentQwa(Qwa currentQwa) {
-        this.currentQwa = currentQwa;
-    }
+// --Commented out by Inspection START (07.07.2016 11:04):
+//    public void setCurrentQwa(Qwa currentQwa) {
+//        this.currentQwa = currentQwa;
+//    }
+// --Commented out by Inspection STOP (07.07.2016 11:04)
 
     public void askAQuestion() throws UserWantsToQuitException {
 
@@ -47,15 +48,9 @@ public class GUIAskQuestion {
 
         int maxAnswers = currentQwa.getAnswers().size();
 
-        //reset counters for correct answers
-        correctAnswerListIndex = new ArrayList<Integer>();
-
         for(int i = 0; i < maxAnswers; i++){
 
             Answer answer = currentQwa.getAnswers().get(i);
-            if(answer.isCorrect()) {
-                correctAnswerListIndex.add(i);
-            }
             System.out.println(Integer.toString(i + 1) + " - " +  answer.getText());
 
         }
@@ -118,7 +113,7 @@ public class GUIAskQuestion {
 
     private static List<Integer> readAnswerfromConsole() throws UserWantsToQuitException {
 
-        List <Integer> userInput = new ArrayList<Integer>();
+        List <Integer> userInput;
 
         System.out.print("\nBitte Zahl eingeben: \n");
         Scanner scanner = new Scanner(System.in);
@@ -132,10 +127,10 @@ public class GUIAskQuestion {
     private static List<Integer> splitUserInput(String input) throws UserWantsToQuitException {
         String[] strArray = input.split("[ ,;]+");
 
-        List<Integer> integers = new ArrayList<Integer>();
+        List<Integer> integers = new ArrayList<>();
 
-        for(int i = 0; i < strArray.length; i++) {
-            integers.add(Integer.parseInt(strArray[i]));
+        for (String aStrArray : strArray) {
+            integers.add(Integer.parseInt(aStrArray));
         }
 
         if(integers.contains(0)) {

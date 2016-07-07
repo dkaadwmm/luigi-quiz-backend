@@ -4,17 +4,15 @@ import business.QuizUtils;
 import model.QuizSet;
 import model.Qwa;
 
-import java.util.List;
-
 /**
  * Created by franziska on 06.07.2016.
  */
-public class GUIQuizSetManager {
+class GUIQuizSetManager {
 
     private static QuizSet qs;
 
 
-    protected static void iterateThroughQuizSet() throws UserWantsToQuitException {
+    static void iterateThroughQuizSet() throws UserWantsToQuitException {
 
         System.out.println("\nHinweis: Mit der Eingabe 0 können Sie das Quiz jederzeit abbrechen!");
 
@@ -27,7 +25,7 @@ public class GUIQuizSetManager {
 
     }
 
-    protected static void getNewQuizSet(int amountAnswers) {
+    static void getNewQuizSet(int amountAnswers) {
 
         /*//Testing
         qs = new QuizSet();
