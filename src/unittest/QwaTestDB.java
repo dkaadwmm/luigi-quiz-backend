@@ -1,6 +1,5 @@
 package unittest;
 
-import business.QuizUtils;
 import model.Answer;
 import model.Question;
 import model.Qwa;

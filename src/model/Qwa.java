@@ -4,6 +4,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Model for a "Question with answers" object. Contains 1 question and a list of answers.
+ */
+
 public class Qwa {
 	private Question question;
 	private List<Answer> answers;

@@ -1,10 +1,14 @@
 package consoleGUI;
 
-import model.Qwa;
 
-public class ConsoleGUIMain {
+/**
+ * This is the Main class for our Luigi Quiz on the console.
+ *
+ */
 
-    static boolean continueGame = true;
+class ConsoleGUIMain {
+
+    private static boolean continueGame = true;
 
 
 	public static void main(String[] args) {
@@ -43,7 +47,7 @@ public class ConsoleGUIMain {
         } while (continueGame) ;
 
 		GUIMenu.printGoodbyeMessage();
-		return;
+
 
 	}
 

@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * This is the model for an answer. Equals the columns of Table "answer" in the Database.
+ */
+
 @Entity
 @Table
 public class Answer {

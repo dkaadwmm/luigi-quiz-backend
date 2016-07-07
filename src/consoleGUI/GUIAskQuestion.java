@@ -8,39 +8,31 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * A class for asking a question. Take note that this needs an Instance to work (no static methods)
+ * as it safes a given Qwa object and reuses it during the Quiz
+ *
  * Created by franziska on 06.07.2016.
  */
-public class GUIAskQuestion {
+class GUIAskQuestion {
 
     private List<Integer> userInput;
     private Qwa currentQwa;
 
-    private List<Integer> correctAnswerListIndex;
-
-
     GUIAskQuestion(Qwa qwa){
         currentQwa = qwa;
-        userInput = new ArrayList<Integer>();
+        userInput = new ArrayList<>();
     }
 
-    public Qwa getCurrentQwa() {
-        return currentQwa;
-    }
+     public Qwa getCurrentQwa() {
+          return currentQwa;
+      }
 
-    public void setCurrentQwa(Qwa currentQwa) {
-        this.currentQwa = currentQwa;
+      public void setCurrentQwa(Qwa currentQwa) {
+          this.currentQwa = currentQwa;
+      }
 
 
-    }
-
-    public void startAskingQuestion() throws  UserWantsToQuitException{
-
-        printQuestionWithAnswers();
-        getAndCheckAnswer();
-
-    }
-
-    public void askAQuestion() throws UserWantsToQuitException {
+    protected void askAQuestion() throws UserWantsToQuitException {
 
         printQuestionWithAnswers();
         getUserInput();
@@ -50,23 +42,15 @@ public class GUIAskQuestion {
 
     }
 
-
-    //prints Question and saves the right answers for future usage
     private void printQuestionWithAnswers(){
         
         System.out.println("\n"+ currentQwa.getQuestion().getText());
 
         int maxAnswers = currentQwa.getAnswers().size();
 
-        //reset counters for correct answers
-        correctAnswerListIndex = new ArrayList<Integer>();
-
         for(int i = 0; i < maxAnswers; i++){
 
             Answer answer = currentQwa.getAnswers().get(i);
-            if(answer.isCorrect()) {
-                correctAnswerListIndex.add(i);
-            }
             System.out.println(Integer.toString(i + 1) + " - " +  answer.getText());
 
         }
@@ -127,61 +111,9 @@ public class GUIAskQuestion {
 
     }
 
-    private void getAndCheckAnswer() throws UserWantsToQuitException {
-
-        List<Integer> userInput = readAnswerfromConsole();
-
-        String missingAnswers = "";
-        String wrongAnswers = "";
-
-        for(int i = 0; i < correctAnswerListIndex.size(); i++){
-
-            if(userInput.contains(correctAnswerListIndex.get(i) + 1)) continue;
-            else missingAnswers += currentQwa.getAnswers().get(correctAnswerListIndex.get(i)).getText() + "\n";
-        }
-
-
-        for(int i : userInput)
-        {
-
-            if(correctAnswerListIndex.contains(i)) continue;
-            else {
-
-                String errorString = "";
-                if (i > currentQwa.getAnswers().size()) errorString = Integer.toString(i);
-                else {errorString = currentQwa.getAnswers().get(i - 1).getText();}
-
-                wrongAnswers += errorString + "\n";
-            }
-        }
-
-
-        if(missingAnswers == "" && wrongAnswers == ""){
-            System.out.println("\nGlückwunsch! Das war richtig!");
-        }
-        else{
-
-            System.out.println("\nLeider falsch!");
-
-            /*System.out.println(testString);
-            System.out.println(correctAnswerListIndex);
-            System.out.println(missingAnswers);*/
-
-
-            if(missingAnswers != "") {
-                System.out.println("Fehlende richtige Antwort(en): " + "\n" + missingAnswers);
-            }
-
-            if(missingAnswers != "") {
-                System.out.println("Falsche Antwort(en): " + "\n" + wrongAnswers);
-            }
-        }
-    }
-
-
     private static List<Integer> readAnswerfromConsole() throws UserWantsToQuitException {
 
-        List <Integer> userInput = new ArrayList<Integer>();
+        List <Integer> userInput;
 
         System.out.print("\nBitte Zahl eingeben: \n");
         Scanner scanner = new Scanner(System.in);
@@ -195,10 +127,10 @@ public class GUIAskQuestion {
     private static List<Integer> splitUserInput(String input) throws UserWantsToQuitException {
         String[] strArray = input.split("[ ,;]+");
 
-        List<Integer> integers = new ArrayList<Integer>();
+        List<Integer> integers = new ArrayList<>();
 
-        for(int i = 0; i < strArray.length; i++) {
-            integers.add(Integer.parseInt(strArray[i]));
+        for (String aStrArray : strArray) {
+            integers.add(Integer.parseInt(aStrArray));
         }
 
         if(integers.contains(0)) {
