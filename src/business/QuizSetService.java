@@ -36,26 +36,4 @@ public class QuizSetService {
     public Response getQuizSetSomeAnswers(@PathParam("count") int count) throws JSONException {
     	return null;
     }
-	
-    @POST
-    @Consumes("application/json")
-    @Produces("application/json")
-    public QuizSet create(QuizSet quizSet) {
-        return QuizUtils.create(quizSet);
-    }
-
-    @PUT
-    @Path("{id}")
-    @Consumes("application/json")
-    @Produces("application/json")
-    public QuizSet update(QuizSet quizSet) {
-        return QuizUtils.update(quizSet);
-    }
-
-    @DELETE
-    @Path("{id}")
-    @Produces("application/json")
-    public void remove(@PathParam("id") int id) {
-    	QuizUtils.removeQwa(id);
-    }
 }
