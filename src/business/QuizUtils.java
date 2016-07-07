@@ -29,6 +29,7 @@ public class QuizUtils {
 	}
 	
 	public static void removeQwa(int questionID) {
+        //from id delete Qwa object
         Qwa qwa = DBManager.getQwaByID(questionID);
         DBManager.deleteQwa(qwa);
 	}
