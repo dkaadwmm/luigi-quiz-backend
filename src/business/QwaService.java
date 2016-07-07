@@ -8,15 +8,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import model.QuizSet;
 import model.Qwa;
 
-@Path("/qwaservice")
 public class QwaService {
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    public Qwa create(Qwa qwa) {
+    public void create(Qwa qwa) {
         QuizUtils.createQwa(qwa);
     }
 
@@ -24,14 +22,14 @@ public class QwaService {
     @Path("{qwa}")
     @Consumes("application/json")
     @Produces("application/json")
-    public Qwa update(Qwa qwa) {
+    public void update(Qwa qwa) {
         QuizUtils.updateQwa(qwa);
     }
 
     @DELETE
     @Path("{id}")
     @Produces("application/json")
-    public Qwa remove(@PathParam("id") int questionID) {
+    public void remove(@PathParam("id") int questionID) {
     	QuizUtils.removeQwa(questionID);
     }
 }
