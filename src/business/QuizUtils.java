@@ -1,12 +1,8 @@
 package business;
 
-
 import model.QuizSet;
-
 import model.Qwa;
 import persistenz.DBManager;
-
-
 import java.util.List;
 
 public class QuizUtils {
@@ -24,18 +20,16 @@ public class QuizUtils {
         return quizSet;
     }
     
-	public static QuizSet create(QuizSet quizSet) {
-		// TODO Auto-generated method stub
-		return null;
+	public static void createQwa(Qwa qwa) {
+        DBManager.insertQwa(qwa);
 	}
 	
-	public static QuizSet update(QuizSet quizSet) {
-		// TODO Auto-generated method stub
-		return null;
+	public static void updateQwa(Qwa qwa) {
+		DBManager.updateQwa(qwa);
 	}
 	
-	public static void remove(int id) {
-		// TODO Auto-generated method stub
-		
+	public static void removeQwa(int questionID) {
+        Qwa qwa = DBManager.getQwaByID(questionID);
+        DBManager.deleteQwa(qwa);
 	}
 }
