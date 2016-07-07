@@ -2,7 +2,7 @@
     <div ng-show="currentQuestion === $index" ng-repeat="qwa in Quiz.qwaList">
         <h3>{{qwa.question.text}}</h3>
         <div ng-repeat="answer in qwa.answers" >
-            <input type="checkbox" ng-model="Quiz.currentAnswer[answer.answerID]">  {{answer.text}}
+            <input type="checkbox" ng-model="currentAnswer[answer.answerID]">  {{answer.text}}
         </div>
         <div class="btn btn-lg btn-default" ng-click="nextQuestion()"> Nächste Frage</div>
 
