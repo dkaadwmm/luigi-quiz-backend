@@ -27,7 +27,7 @@ public class DBManager {
 	    return qwa;
 	}
 
-	public static int getQuestionCount(){
+	private static int getQuestionCount(){
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.openSession();
 
