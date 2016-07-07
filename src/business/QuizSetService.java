@@ -56,6 +56,6 @@ public class QuizSetService {
     @Path("{id}")
     @Produces("application/json")
     public void remove(@PathParam("id") int id) {
-    	QuizUtils.remove(id);
+    	QuizUtils.removeQwa(id);
     }
 }
