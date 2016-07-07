@@ -30,21 +30,24 @@ class GUIQuizSetManager {
 
     /**
      * gets a new Quiz set from QuizUtils.generateRandomQuizSet(int amountAnswers)
+     * If an Exception occurs (e.g. no Database), it will use TestData instead
      *
-     * If you want to check without using DB connection or if you want to get the questions from another source
+     * If you want  to get the questions from another source
      * modify this method
      *
      * @param amountAnswers how many answers should be created
      */
     static void getNewQuizSet(int amountAnswers) {
 
-        /*//Testing
-        qs = new QuizSet();
-        for(int i = 0; i < 10; i++)
-        {
-            qs.addQwa(unittest.ConsoleGUITest.createTestQwa(i, i+(i*4)));
-        }*/
-
-        qs = QuizUtils.generateRandomQuizSet(amountAnswers);
+        try {
+            qs = QuizUtils.generateRandomQuizSet(amountAnswers);
+        }
+        catch(Exception e){
+            qs = new QuizSet();
+            for(int i = 0; i < 10; i++)
+            {
+                qs.addQwa(unittest.ConsoleGUITest.createTestQwa(i, i+(i*4)));
+            }
+        }
     }
 }
