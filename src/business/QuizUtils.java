@@ -6,10 +6,6 @@ import persistenz.DBManager;
 import java.util.List;
 
 public class QuizUtils {
-	
-    public static void insertQwa(Qwa qwa){
-        DBManager.insertQwa(qwa);
-    }
     
     public static QuizSet generateRandomQuizSet(int questionAmountToGet){
         QuizSet quizSet = new QuizSet();
