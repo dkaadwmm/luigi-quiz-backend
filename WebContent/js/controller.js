@@ -1,4 +1,5 @@
 angular.module('myApp')
+	.value('values', {result: 0})
 	.controller('QuizController', ['$scope', '$http', '$route', 'values', function($scope, $http, $route, values) {
 	    
     	$scope.removeQwa = function(questionID) {
@@ -44,6 +45,10 @@ angular.module('myApp')
 	}])
     .controller('QwaController', ['$scope', '$http', '$route', function($scope, $http, $route) {
         
+    	$scope.createQwa = function(qwa) {
+    		$http.post('http://localhost:8080/luigi-quiz-backend/quiz/qwaservice/' + qwa);
+        }
+    	
     	$scope.removeQwa = function(questionID) {
     		$http.delete('http://localhost:8080/luigi-quiz-backend/quiz/qwaservice/' + questionID);
     		$route.reload();
